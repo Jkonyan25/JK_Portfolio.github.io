@@ -1696,3 +1696,16 @@ input, select, textarea {
 	margin-left: 25px;
 	margin-right: 25px;
   }
+
+/* Profile Image Styles */
+#header .minor img {
+	border-radius: 50%;
+	transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+	border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+#header .minor img:hover {
+	transform: scale(1.1) rotate(5deg);
+	box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+	cursor: pointer;
+}
