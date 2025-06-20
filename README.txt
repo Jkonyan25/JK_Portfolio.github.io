@@ -1,5 +1,5 @@
-GitHub based portfolio that was inspired by an online resource, all credits and work are respected to creator.
-
+Thank you reading this file, all respective resources are creditted to the original owner of the format used.
+Editted by: John Konyan
 Credits:
 
 	Demo Images:
