@@ -1,170 +1,863 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
 	<head>
-		<title>John Konyan Portfolio</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<title>John Konyan — Senior Software QA Engineer</title>
+		<meta
+			name="description"
+			content="John Konyan is a Senior Software QA Engineer in medical devices — software V&amp;V, IEC 62304 lifecycle ownership, and embedded firmware validation under FDA and ISO 13485."
+		/>
+		<meta name="author" content="John Konyan" />
+		<meta name="theme-color" content="#fbfbfd" media="(prefers-color-scheme: light)" />
+		<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
+
+		<!-- Social preview -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="John Konyan — Senior Software QA Engineer" />
+		<meta
+			property="og:description"
+			content="Software V&amp;V, IEC 62304 lifecycle ownership, and embedded firmware validation for Class III medical devices."
+		/>
+		<meta property="og:image" content="images/john-konyan.jpg" />
+		<meta name="twitter:card" content="summary_large_image" />
+
+		<link rel="icon" href="images/john-konyan.jpg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
+		<link rel="stylesheet" href="assets/css/portfolio.css" />
+		<noscript>
+			<style>
+				[data-reveal] {
+					opacity: 1 !important;
+					transform: none !important;
+				}
+			</style>
+		</noscript>
+		<script>
+			/* Apply the saved theme before first paint to avoid a flash. */
+			(function () {
+				try {
+					var saved = localStorage.getItem("jk-theme");
+					var prefersDark =
+						window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+					document.documentElement.setAttribute(
+						"data-theme",
+						saved || (prefersDark ? "dark" : "light")
+					);
+				} catch (e) {}
+			})();
+		</script>
 	</head>
-	<body class="is-preload">
+	<body>
+		<a class="skip-link" href="#main">Skip to content</a>
+		<div class="progress" id="progress" aria-hidden="true"></div>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+		<!-- ================= Navigation ================= -->
+		<header class="nav" id="nav">
+			<div class="nav__inner">
+				<a class="nav__brand" href="#home" aria-label="John Konyan — back to top">
+					<span class="nav__mark" aria-hidden="true">JK</span>
+					<span>John Konyan</span>
+				</a>
 
-				<!-- Header -->
-				<header id="header">
-					<div class="minor">
-					  <img src="images/johnk.jpg" width="200" height="175" style="transition: transform 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
-					</div>
-					<div class="content">
-					  <div class="inner">
-						<h1>
-						  <span style="display: inline-block; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'">J</span>
-						  <span style="display: inline-block; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'">o</span>
-						  <span style="display: inline-block; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'">h</span>
-						  <span style="display: inline-block; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'">n</span>
-						  <span style="display: inline-block;">&nbsp;</span> <!-- Add a space span for spacing between first and last name -->
-						  <span style="display: inline-block; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'">K</span>
-						  <span style="display: inline-block; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'">o</span>
-						  <span style="display: inline-block; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'">n</span>
-						  <span style="display: inline-block; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'">y</span>
-						  <span style="display: inline-block; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'">a</span>
-						  <span style="display: inline-block; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.5)'" onmouseout="this.style.transform='scale(1)'">n</span>
-						</h1>
-						<p>I am a Software Engineer who is ambitious and always looking for the next opportunity.</p>
-						<p>Current Languages: Python, Java, JavaScript, HTML, CSS</p>
-					  </div>
-					</div>
-					<nav>
-					  <ul>
-						<li><a href="#intro">Intro</a></li>
-						<li><a href="#work">Work</a></li>
-						<li><a href="#projects">Projects</a></li>
-						<li><a href="#contact">Contact</a></li>
-					  </ul>
-					</nav>
-					
-				  </header>
+				<nav class="nav__links" aria-label="Primary">
+					<a class="nav__link" href="#about">About</a>
+					<a class="nav__link" href="#experience">Experience</a>
+					<a class="nav__link" href="#skills">Skills</a>
+					<a class="nav__link" href="#projects">Projects</a>
+					<a class="nav__link" href="#education">Education</a>
+					<a class="nav__link" href="#contact">Contact</a>
+				</nav>
 
-				<!-- Main -->
-					<div id="main">
-
-						<!-- Intro -->
-							<article id="intro">
-								<h2 class="major">Intro</h2>
-								<p></a>Thank you for clicking here, here's a brief introduction of myself.</p>
-								<p></a>My name is John Konyan, and I am a graduate from California State University, Northridge with a degree in Bacholers of Science, Computer Science. I've always been interested in technology and the process of creating something or fixing problems. This bounces to my personal life as I deeply enjoy cars and tinkering with them until I reached my desired outcome. I bring that same mentality to my professional career and will not stop until I reach the end goal.</p>
-							</article>
-
-						<!-- Work -->
-							<article id="work">
-								<h2 class="major">Work</h2>
-								<span class="image main"><img src="images/Medtronic_logo.jpg" alt="" /></span>
-								<p><strong> Current Title:</strong> Software Test Engineer </p>
-								<p><strong> Responsilbites: </strong> 
-								<p>•  <b>Developed and executed </b>test plans and scripts designed to detect problems in software applications and systems software.</p>
-								    •	Ensures software applications or systems software meets technical and functional requirements. </p>
-									•	Reviews <b>test automation frameworks, tools, techniques, and methodologies.</b> </p>
-									•	Coordinate <b>technical discussions and problem solving</b> for software projects and collaborate with cross functional teams. </p>
-									•	Conducted <b>manual tests on SPIS boards </b> to ensure insulin pump automation reacts correctly with hardware.</p>
-							</article>
-
-						<!-- Projects -->
-						<article id="projects">
-							<h2 class="major">Projects</h2>
-							<span class="image main"><img src="images/car racing.JPG" alt="" /></span>
-							<p>Currently WIP. Written in Python, using Flask for a GUI, I created this web app due to my love of cars, and I wanted to create an application that would help users find specific trims for BMWs based off a database of 5000 cars.</p>
-						    <a href="https://github.com/Jkonyan25" class="github-button">Project Repo</a>
-
-
-							<span class="image main"><img src="images/Portfolio.home.jpg" height="500" alt="" /></span>
-							<p>•	Using GitHub pages to deploy a basic portfolio website, that contains necessary applicant information. </p>
-								•	Languages used: SCSS, CSS, JavaScript, and HTML </p>
-								•	Interactive website, that allows user to browse through tabs.</p>
-								•	Interactive designs that react based off user's mouse movement.</p>
-								•	Developed in Visual Studio Code
-								</p>
-							<!-- GitHub Repo Button -->
-							<a href="https://github.com/Jkonyan25/JK_Portfolio.github.io" class="github-button">Project Repo</a>
-						  </article>
-
-						<!-- Contact -->
-							<article id="contact">
-								<h3 class="major">Contact Information</h3>
-								<ul class="icons">
-									<l><b>Phone Number:</b> 818-667-9110</l> <p><b>Email:</b> jkonyanswengineer@gmail.com</p>
-									<li><a href="https://www.linkedin.com/in/jkonyan/" target = "_blank" class="icon brands fa fa-linkedin"><span class="label">Linkedin</span></a></li>
-									<li><a href="https://github.com/Jkonyan25" target = "_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-									<li><a href="mailto:jkonyanswengineer@gmail.com" target = "_blank" class="icon brands fa-google"><span class="label">Gmail</span></a></li>
-								</ul>
-								<section>
-									<h3 class="major">Contact Form</h3>
-									<form id="contact-form" method="post">
-										<div class="fields">
-											<div class="field half">
-												<label for="demo-name">Name</label>
-												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" required />
-											</div>
-											<div class="field half">
-												<label for="demo-email">Email</label>
-												<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" required />
-											</div>
-											<div class="field half">
-												<input type="checkbox" id="demo-copy" name="demo-copy" checked>
-												<label for="demo-copy">Send me a confirmation email</label>
-											</div>
-											<div class="field">
-												<label for="demo-message">Message</label>
-												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6" required></textarea>
-											</div>
-										</div>
-										<ul class="actions">
-											<li><input type="submit" value="Send Message" class="primary" /></li>
-											<li><input type="reset" value="Reset" /></li>
-										</ul>
-									</form>
-								</section>
-							</article>
-						<!-- Elements -->
-							<article id="elements">
-								<h2 class="major">Elements</h2>
-
-							
-while (!deck.isInOrder()) {
-    print 'Iteration ' + i;
-    deck.shuffle();
-    i++;
-}
-
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
-								</section>
-							</article>
-
-					</div>
-
-				<!-- Footer -->
-					<footer id="footer">
-					</footer>
-
+				<div class="nav__actions">
+					<button
+						class="icon-btn theme-toggle"
+						id="theme-toggle"
+						type="button"
+						aria-label="Switch between light and dark appearance"
+					>
+						<i class="fas fa-sun" aria-hidden="true"></i>
+						<i class="fas fa-moon" aria-hidden="true"></i>
+					</button>
+					<a class="btn" href="assets/Konyan_John_Resume.pdf" download>
+						<i class="fas fa-download" aria-hidden="true"></i> Résumé
+					</a>
+					<button
+						class="nav__burger"
+						id="burger"
+						type="button"
+						aria-label="Menu"
+						aria-expanded="false"
+						aria-controls="nav-panel"
+					>
+						<span></span><span></span><span></span>
+					</button>
+				</div>
 			</div>
+		</header>
 
-		<!-- BG -->
-			<div id="bg"></div>
+		<div class="nav__panel" id="nav-panel">
+			<a href="#about">About</a>
+			<a href="#experience">Experience</a>
+			<a href="#skills">Skills</a>
+			<a href="#projects">Projects</a>
+			<a href="#education">Education</a>
+			<a href="#contact">Contact</a>
+			<a href="assets/Konyan_John_Resume.pdf" download>Download résumé</a>
+		</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-			<script type="text/javascript">
-				(function() {
-					emailjs.init("lS6DN_KOkTh5iM9vf"); // Add your EmailJS public key here
-				})();
-			</script>
-			<script src="assets/js/contact.js"></script>
+		<main id="main">
+			<!-- ================= Hero ================= -->
+			<section class="hero" id="home">
+				<div class="hero__aurora" aria-hidden="true"></div>
+				<div class="wrap hero__grid">
+					<div class="hero__intro">
+						<span class="hero__status" data-reveal>
+							<span class="hero__dot" aria-hidden="true"></span>
+							Senior SW QA Engineer at Boston Scientific
+						</span>
 
+						<h1 class="hero__title" data-reveal style="--delay: 80ms">
+							<span>John</span>
+							<span class="grad-text">Konyan.</span>
+						</h1>
+
+						<p class="hero__role" data-reveal style="--delay: 160ms">
+							I make medical device software provably safe.
+						</p>
+
+						<p class="hero__copy" data-reveal style="--delay: 240ms">
+							Six years turning firmware and embedded systems into validated, audit-ready
+							products — from insulin pumps to nerve ablation devices.
+						</p>
+
+						<div class="hero__cta" data-reveal style="--delay: 320ms">
+							<a class="btn" href="#experience">
+								See my work <i class="fas fa-arrow-right" aria-hidden="true"></i>
+							</a>
+							<a class="btn btn--ghost" href="#contact">Get in touch</a>
+						</div>
+
+						<ul class="hero__social" data-reveal style="--delay: 400ms">
+							<li>
+								<a
+									href="https://www.linkedin.com/in/jkonyan/"
+									target="_blank"
+									rel="noopener"
+									aria-label="LinkedIn profile"
+								>
+									<i class="fab fa-linkedin-in" aria-hidden="true"></i>
+								</a>
+							</li>
+							<li>
+								<a
+									href="https://github.com/Jkonyan25"
+									target="_blank"
+									rel="noopener"
+									aria-label="GitHub profile"
+								>
+									<i class="fab fa-github" aria-hidden="true"></i>
+								</a>
+							</li>
+							<li>
+								<a href="mailto:Jkonyanswengineer@gmail.com" aria-label="Email John">
+									<i class="fas fa-envelope" aria-hidden="true"></i>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="hero__figure" id="hero-figure" data-reveal="fade" style="--delay: 120ms">
+						<div class="hero__ring" aria-hidden="true"></div>
+						<div class="hero__portrait">
+							<img
+								src="images/john-konyan.jpg"
+								width="900"
+								height="784"
+								alt="Portrait of John Konyan"
+								fetchpriority="high"
+							/>
+						</div>
+						<div class="hero__badge hero__badge--1">
+							<i class="fas fa-shield-alt" aria-hidden="true"></i> IEC 62304 Owner
+						</div>
+						<div class="hero__badge hero__badge--2">
+							<i class="fas fa-heartbeat" aria-hidden="true"></i> Class III Devices
+						</div>
+					</div>
+				</div>
+
+				<a class="hero__scroll" href="#about" aria-label="Scroll to about">
+					<span class="hero__mouse" aria-hidden="true"></span>
+					Scroll
+				</a>
+			</section>
+
+			<!-- ================= Stats ================= -->
+			<section class="section section--tint" aria-label="Career at a glance">
+				<div class="wrap">
+					<ul class="stats">
+						<li class="stat" data-reveal>
+							<span class="stat__num" data-count="6" data-suffix="+">0</span>
+							<span class="stat__label">Years in software quality &amp; engineering</span>
+						</li>
+						<li class="stat" data-reveal style="--delay: 90ms">
+							<span class="stat__num" data-count="2">0</span>
+							<span class="stat__label">Promotions earned during Medtronic tenure</span>
+						</li>
+						<li class="stat" data-reveal style="--delay: 180ms">
+							<span class="stat__num" data-count="3.38" data-decimals="2">0</span>
+							<span class="stat__label">Cumulative GPA — full-time Dean's Honor List</span>
+						</li>
+						<li class="stat" data-reveal style="--delay: 270ms">
+							<span class="stat__num" data-count="4">0</span>
+							<span class="stat__label">Regulatory frameworks owned end to end</span>
+						</li>
+					</ul>
+				</div>
+			</section>
+
+			<!-- ================= About ================= -->
+			<section class="section" id="about">
+				<div class="wrap">
+					<div class="about">
+						<div class="about__body">
+							<span class="eyebrow" data-reveal>About</span>
+							<h2 class="section__title" data-reveal style="--delay: 60ms">
+								Quality is not a checklist.<br />It's how the product earns trust.
+							</h2>
+							<p data-reveal style="--delay: 120ms">
+								I'm a Senior Software QA Engineer working on devices where a defect is not an
+								inconvenience — it's a patient safety event.
+							</p>
+							<p data-reveal style="--delay: 180ms">
+								I graduated from California State University, Northridge with a B.S. in Computer
+								Science and went straight into regulated medical software. At Medtronic I owned
+								the IEC 62304 software lifecycle and validated embedded insulin pump systems
+								under FDA 21 CFR Part 820. Today, at Boston Scientific, I lead design quality
+								assurance for a newly acquired Basivertebral Nerve ablation platform and
+								coordinate requirements across international teams.
+							</p>
+							<p data-reveal style="--delay: 240ms">
+								Outside of work I'm usually under the hood of a car. It's the same instinct that
+								drives my engineering: take it apart, find out exactly why it behaves the way it
+								does, and don't stop until it's right.
+							</p>
+						</div>
+
+						<div class="pillars">
+							<article class="pillar" data-reveal="right">
+								<span class="pillar__icon" aria-hidden="true"
+									><i class="fas fa-clipboard-check"></i
+								></span>
+								<div>
+									<h3>Verification &amp; Validation</h3>
+									<p>
+										Full lifecycle ownership — test planning, design, execution, and
+										traceability for production software releases.
+									</p>
+								</div>
+							</article>
+							<article class="pillar" data-reveal="right" style="--delay: 90ms">
+								<span class="pillar__icon" aria-hidden="true"><i class="fas fa-shield-alt"></i></span>
+								<div>
+									<h3>Regulatory Compliance</h3>
+									<p>
+										IEC 62304, ISO 13485, ISO 14971 and FDA 21 CFR Part 820 — built into the
+										process, not bolted on before an audit.
+									</p>
+								</div>
+							</article>
+							<article class="pillar" data-reveal="right" style="--delay: 180ms">
+								<span class="pillar__icon" aria-hidden="true"><i class="fas fa-microchip"></i></span>
+								<div>
+									<h3>Embedded Systems</h3>
+									<p>
+										White box testing of device firmware, catching logic errors before they
+										reach hardware in the field.
+									</p>
+								</div>
+							</article>
+							<article class="pillar" data-reveal="right" style="--delay: 270ms">
+								<span class="pillar__icon" aria-hidden="true"><i class="fas fa-code"></i></span>
+								<div>
+									<h3>Automation</h3>
+									<p>
+										Reusable test scripts and libraries that cut time-to-test on regression
+										suites for the whole team.
+									</p>
+								</div>
+							</article>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- ================= Experience ================= -->
+			<section class="section section--tint" id="experience">
+				<div class="wrap">
+					<div class="section__head">
+						<span class="eyebrow" data-reveal>Experience</span>
+						<h2 class="section__title" data-reveal style="--delay: 60ms">
+							Where I've done the work.
+						</h2>
+						<p class="section__lede" data-reveal style="--delay: 120ms">
+							Six years across Class III medical devices and public infrastructure — always at the
+							point where software meets something real.
+						</p>
+					</div>
+
+					<div class="timeline">
+						<!-- Boston Scientific -->
+						<article class="job is-current" data-reveal>
+							<div class="job__top">
+								<h3 class="job__role">Senior SW QA Engineer</h3>
+								<span class="job__dates">Apr 2026 — Present</span>
+							</div>
+							<p class="job__co">
+								Boston Scientific <span>· Valencia, CA</span>
+							</p>
+							<ul class="job__list">
+								<li>
+									<strong>Leading design quality assurance</strong> for the newly acquired
+									Basivertebral Nerve (BVN) Ablation device.
+								</li>
+								<li>
+									Perform <strong>test validation protocols</strong> for production firmware
+									releases of the BVN Ablation device.
+								</li>
+								<li>
+									Assess <strong>NCEP/CAPA hazards</strong> and maintain a full traceability
+									matrix adhering to ISO 13485 and FDA audits.
+								</li>
+							</ul>
+							<button class="job__toggle" type="button" aria-expanded="false">
+								Show more <i class="fas fa-chevron-down" aria-hidden="true"></i>
+							</button>
+							<ul class="job__list job__more">
+								<li>
+									Perform <strong>project risk analysis</strong> of the Boston Scientific GX1
+									platform for the Chinese market release.
+								</li>
+								<li>
+									Coordinate with the <strong>offshore Chinese team</strong> to align design,
+									system, software and firmware requirements with local governance.
+								</li>
+							</ul>
+							<ul class="tagrow">
+								<li class="tag">Design Quality Assurance</li>
+								<li class="tag">ISO 13485</li>
+								<li class="tag">NCEP / CAPA</li>
+								<li class="tag">Traceability Matrix</li>
+								<li class="tag">Risk Analysis</li>
+								<li class="tag">Global Release</li>
+							</ul>
+						</article>
+
+						<!-- Medtronic -->
+						<article class="job" data-reveal style="--delay: 90ms">
+							<div class="job__top">
+								<h3 class="job__role">Sr. Software Test Engineer</h3>
+								<span class="job__dates">Jan 2022 — Apr 2026</span>
+							</div>
+							<p class="job__co">
+								Medtronic <span>· Northridge, CA · Promoted twice</span>
+							</p>
+							<ul class="job__list">
+								<li>
+									<strong>Directed the full project lifecycle</strong> for software validation and
+									verification (V&amp;V) — test planning, design and execution — under FDA 21 CFR
+									Part 820 and GMP standards.
+								</li>
+								<li>
+									Acted as <strong>Primary Process Owner for IEC 62304</strong> software lifecycle
+									processes, enforcing compliance across ISO 13485 (QMS) and ISO 14971 (Risk
+									Management).
+								</li>
+								<li>
+									<strong>Managed risk mitigation</strong> for complex device firmware by
+									identifying logic errors during White Box testing, directly improving embedded
+									system reliability.
+								</li>
+							</ul>
+							<button class="job__toggle" type="button" aria-expanded="false">
+								Show more <i class="fas fa-chevron-down" aria-hidden="true"></i>
+							</button>
+							<ul class="job__list job__more">
+								<li>
+									Designed and executed <strong>manual and automated test cases</strong> validating
+									the performance and accuracy of embedded insulin pump systems across varied
+									hardware configurations.
+								</li>
+								<li>
+									Collaborated with data engineering and hardware teams to refine
+									<strong>data validation logic</strong> and requirements traceability.
+								</li>
+								<li>
+									Developed <strong>reusable test scripts and libraries</strong>, improving team
+									productivity by reducing time-to-test for regression suites.
+								</li>
+								<li>
+									Created and validated <strong>Windchill 11 &amp; 12</strong> tickets to manage
+									test cycles, defects, system/user requirements and reports.
+								</li>
+								<li>
+									Participated in code and documentation reviews, contributing a data validation
+									and user experience perspective on regulatory and usability standards.
+								</li>
+							</ul>
+							<ul class="tagrow">
+								<li class="tag">IEC 62304</li>
+								<li class="tag">FDA 21 CFR Part 820</li>
+								<li class="tag">ISO 14971</li>
+								<li class="tag">White Box Testing</li>
+								<li class="tag">Test Automation</li>
+								<li class="tag">Embedded Firmware</li>
+								<li class="tag">Windchill 11 &amp; 12</li>
+							</ul>
+						</article>
+
+						<!-- Beaches and Harbors -->
+						<article class="job" data-reveal style="--delay: 180ms">
+							<div class="job__top">
+								<h3 class="job__role">Software Engineer I</h3>
+								<span class="job__dates">Jan 2020 — Jan 2021</span>
+							</div>
+							<p class="job__co">
+								Department of Beaches and Harbors <span>· Marina Del Rey, CA</span>
+							</p>
+							<ul class="job__list">
+								<li>
+									<strong>Integrated SQL databases</strong> used to track boat registration at the
+									Marina Del Rey pier.
+								</li>
+								<li>
+									Helped drive the <strong>push to cloud data storage</strong> for better data
+									optimization.
+								</li>
+								<li>
+									Maintained the Department of Beaches and Harbors boat registration system.
+								</li>
+							</ul>
+							<ul class="tagrow">
+								<li class="tag">SQL</li>
+								<li class="tag">Database Integration</li>
+								<li class="tag">Cloud Migration</li>
+							</ul>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<!-- ================= Skills ================= -->
+			<section class="section" id="skills">
+				<div class="wrap">
+					<div class="section__head section__head--center">
+						<span class="eyebrow" data-reveal>Capabilities</span>
+						<h2 class="section__title" data-reveal style="--delay: 60ms">
+							The toolkit behind the results.
+						</h2>
+					</div>
+
+					<div class="skills">
+						<article class="skillcard" data-reveal>
+							<span class="skillcard__icon" aria-hidden="true"><i class="fas fa-code"></i></span>
+							<h3>Languages &amp; Tools</h3>
+							<ul class="tagrow">
+								<li class="tag">Python</li>
+								<li class="tag">Java</li>
+								<li class="tag">JavaScript</li>
+								<li class="tag">SQL</li>
+								<li class="tag">HTML</li>
+								<li class="tag">CSS / SCSS</li>
+								<li class="tag">Flask</li>
+								<li class="tag">Git &amp; GitHub</li>
+								<li class="tag">VS Code</li>
+							</ul>
+						</article>
+
+						<article class="skillcard" data-reveal style="--delay: 90ms">
+							<span class="skillcard__icon" aria-hidden="true"><i class="fas fa-flask"></i></span>
+							<h3>Test &amp; Validation</h3>
+							<ul class="tagrow">
+								<li class="tag">Software V&amp;V</li>
+								<li class="tag">Test Planning &amp; Design</li>
+								<li class="tag">White Box Testing</li>
+								<li class="tag">Test Automation</li>
+								<li class="tag">Regression Suites</li>
+								<li class="tag">Validation Protocols</li>
+								<li class="tag">Defect Management</li>
+							</ul>
+						</article>
+
+						<article class="skillcard" data-reveal style="--delay: 180ms">
+							<span class="skillcard__icon" aria-hidden="true"
+								><i class="fas fa-shield-alt"></i
+							></span>
+							<h3>Regulatory &amp; Quality</h3>
+							<ul class="tagrow">
+								<li class="tag">IEC 62304</li>
+								<li class="tag">ISO 13485</li>
+								<li class="tag">ISO 14971</li>
+								<li class="tag">FDA 21 CFR Part 820</li>
+								<li class="tag">GMP</li>
+								<li class="tag">NCEP / CAPA</li>
+								<li class="tag">Traceability Matrix</li>
+								<li class="tag">Windchill 11 &amp; 12</li>
+							</ul>
+						</article>
+
+						<article class="skillcard" data-reveal style="--delay: 270ms">
+							<span class="skillcard__icon" aria-hidden="true"
+								><i class="fas fa-chart-line"></i
+							></span>
+							<h3>Data &amp; Leadership</h3>
+							<ul class="tagrow">
+								<li class="tag">Data Analytics</li>
+								<li class="tag">Data Visualization</li>
+								<li class="tag">Knowledge Discovery</li>
+								<li class="tag">Risk Analysis</li>
+								<li class="tag">Cross-functional Teams</li>
+								<li class="tag">Offshore Coordination</li>
+								<li class="tag">Process Ownership</li>
+							</ul>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<!-- ================= Projects ================= -->
+			<section class="section section--tint" id="projects">
+				<div class="wrap">
+					<div class="section__head">
+						<span class="eyebrow" data-reveal>Projects</span>
+						<h2 class="section__title" data-reveal style="--delay: 60ms">Things I build for fun.</h2>
+						<p class="section__lede" data-reveal style="--delay: 120ms">
+							Side projects where I get to design, write and ship the whole thing myself.
+						</p>
+					</div>
+
+					<div class="projects">
+						<article class="project" data-reveal>
+							<div class="project__media">
+								<span class="project__chip">Work in progress</span>
+								<img
+									src="images/project-bmw.jpg"
+									width="1800"
+									height="1200"
+									alt="BMW on a racetrack"
+									loading="lazy"
+								/>
+							</div>
+							<div class="project__body">
+								<h3>BMW Trim Finder</h3>
+								<p>
+									A Flask web app born out of my love of cars. It searches a database of 5,000
+									vehicles to help users pin down the exact BMW trim they're after.
+								</p>
+								<ul class="tagrow">
+									<li class="tag">Python</li>
+									<li class="tag">Flask</li>
+									<li class="tag">SQL</li>
+								</ul>
+								<div class="project__foot">
+									<a
+										class="link-arrow"
+										href="https://github.com/Jkonyan25"
+										target="_blank"
+										rel="noopener"
+										>View repository</a
+									>
+								</div>
+							</div>
+						</article>
+
+						<article class="project" data-reveal style="--delay: 90ms">
+							<div class="project__media">
+								<span class="project__chip">Live</span>
+								<img
+									src="images/project-portfolio.jpg"
+									width="1600"
+									height="1000"
+									alt="Screenshot of this portfolio website"
+									loading="lazy"
+								/>
+							</div>
+							<div class="project__body">
+								<h3>This Portfolio</h3>
+								<p>
+									A hand-built, fully responsive single page deployed on GitHub Pages — scroll
+									animations, light and dark appearance, and a working contact form with no
+									backend.
+								</p>
+								<ul class="tagrow">
+									<li class="tag">HTML</li>
+									<li class="tag">CSS / SCSS</li>
+									<li class="tag">JavaScript</li>
+									<li class="tag">GitHub Pages</li>
+								</ul>
+								<div class="project__foot">
+									<a
+										class="link-arrow"
+										href="https://github.com/Jkonyan25/JK_Portfolio.github.io"
+										target="_blank"
+										rel="noopener"
+										>View repository</a
+									>
+								</div>
+							</div>
+						</article>
+
+						<article class="project" data-reveal style="--delay: 180ms">
+							<div class="project__media project__media--gradient">
+								<span class="project__chip">Live</span>
+								<span class="project__glyph" aria-hidden="true">HbH</span>
+							</div>
+							<div class="project__body">
+								<h3>HookahByHov.com</h3>
+								<p>
+									A business website for a hookah catering company, built with Claude Code. Guests
+									build their own package and send an inquiry straight to the owner.
+								</p>
+								<ul class="tagrow">
+									<li class="tag">Web App</li>
+									<li class="tag">Claude Code</li>
+									<li class="tag">Client Work</li>
+								</ul>
+								<div class="project__foot">
+									<a
+										class="link-arrow"
+										href="https://hookahbyhov.com"
+										target="_blank"
+										rel="noopener"
+										>Visit the site</a
+									>
+								</div>
+							</div>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<!-- ================= Education ================= -->
+			<section class="section" id="education">
+				<div class="wrap">
+					<div class="section__head">
+						<span class="eyebrow" data-reveal>Education</span>
+						<h2 class="section__title" data-reveal style="--delay: 60ms">Still learning.</h2>
+					</div>
+
+					<div class="edu">
+						<article class="degree" data-reveal="left">
+							<span class="degree__status degree__status--live">In progress</span>
+							<span class="degree__icon" aria-hidden="true"><i class="fas fa-chart-line"></i></span>
+							<h3>M.S., Engineering Management — Data Analytics</h3>
+							<p class="degree__school">Graduate program — currently enrolled</p>
+							<p class="degree__meta">
+								Building the analytics and decision-making side of engineering leadership.
+							</p>
+							<div class="coursework">
+								<h4>Coursework</h4>
+								<ul class="tagrow">
+									<li class="tag">Data Analytics for Engineering Managers</li>
+									<li class="tag">Knowledge Discovery from Databases</li>
+									<li class="tag">Data Visualization</li>
+									<li class="tag">Decision Tools</li>
+									<li class="tag">Entrepreneurship &amp; Innovation</li>
+									<li class="tag">Engineering Economy &amp; Financial Analysis</li>
+								</ul>
+							</div>
+						</article>
+
+						<article class="degree" data-reveal="right" style="--delay: 90ms">
+							<span class="degree__status">Aug 2022</span>
+							<span class="degree__icon" aria-hidden="true"
+								><i class="fas fa-graduation-cap"></i
+							></span>
+							<h3>B.S., Computer Science</h3>
+							<p class="degree__school">California State University, Northridge</p>
+							<p class="degree__meta">
+								Cumulative GPA 3.38 · Full-time Dean's Honor List
+							</p>
+							<div class="coursework">
+								<h4>Coursework</h4>
+								<ul class="tagrow">
+									<li class="tag">Databases</li>
+									<li class="tag">Algorithms</li>
+									<li class="tag">Programming Languages</li>
+									<li class="tag">Software Engineering</li>
+									<li class="tag">Web Engineering</li>
+									<li class="tag">Database Design</li>
+									<li class="tag">Computer Architecture</li>
+									<li class="tag">Machine Learning</li>
+									<li class="tag">Operating Systems</li>
+									<li class="tag">Calculus II</li>
+									<li class="tag">Linear Algebra</li>
+								</ul>
+							</div>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<!-- ================= Contact ================= -->
+			<section class="section section--tint" id="contact">
+				<div class="wrap">
+					<div class="section__head">
+						<span class="eyebrow" data-reveal>Contact</span>
+						<h2 class="section__title" data-reveal style="--delay: 60ms">Let's talk.</h2>
+						<p class="section__lede" data-reveal style="--delay: 120ms">
+							Open to conversations about software quality, medical devices, and anything with an
+							engine in it.
+						</p>
+					</div>
+
+					<div class="contact">
+						<div class="contact__cards">
+							<a class="ccard" href="mailto:Jkonyanswengineer@gmail.com" data-reveal="left">
+								<span class="ccard__icon" aria-hidden="true"><i class="fas fa-envelope"></i></span>
+								<span>
+									<span class="ccard__label">Email</span>
+									<span class="ccard__value">Jkonyanswengineer@gmail.com</span>
+								</span>
+							</a>
+							<a class="ccard" href="tel:+18186679110" data-reveal="left" style="--delay: 80ms">
+								<span class="ccard__icon" aria-hidden="true"><i class="fas fa-phone-alt"></i></span>
+								<span>
+									<span class="ccard__label">Phone</span>
+									<span class="ccard__value">818-667-9110</span>
+								</span>
+							</a>
+							<a
+								class="ccard"
+								href="https://www.linkedin.com/in/jkonyan/"
+								target="_blank"
+								rel="noopener"
+								data-reveal="left"
+								style="--delay: 160ms"
+							>
+								<span class="ccard__icon" aria-hidden="true"
+									><i class="fab fa-linkedin-in"></i
+								></span>
+								<span>
+									<span class="ccard__label">LinkedIn</span>
+									<span class="ccard__value">linkedin.com/in/jkonyan</span>
+								</span>
+							</a>
+							<a
+								class="ccard"
+								href="https://github.com/Jkonyan25"
+								target="_blank"
+								rel="noopener"
+								data-reveal="left"
+								style="--delay: 240ms"
+							>
+								<span class="ccard__icon" aria-hidden="true"><i class="fab fa-github"></i></span>
+								<span>
+									<span class="ccard__label">GitHub</span>
+									<span class="ccard__value">github.com/Jkonyan25</span>
+								</span>
+							</a>
+							<a
+								class="ccard"
+								href="assets/Konyan_John_Resume.pdf"
+								download
+								data-reveal="left"
+								style="--delay: 320ms"
+							>
+								<span class="ccard__icon" aria-hidden="true"><i class="fas fa-download"></i></span>
+								<span>
+									<span class="ccard__label">Résumé</span>
+									<span class="ccard__value">Download the PDF</span>
+								</span>
+							</a>
+						</div>
+
+						<form class="form" id="contact-form" method="post" novalidate data-reveal="right">
+							<div class="form__grid">
+								<div class="field">
+									<label for="demo-name">Name</label>
+									<input
+										type="text"
+										name="demo-name"
+										id="demo-name"
+										placeholder="Your name"
+										autocomplete="name"
+										required
+									/>
+								</div>
+								<div class="field">
+									<label for="demo-email">Email</label>
+									<input
+										type="email"
+										name="demo-email"
+										id="demo-email"
+										placeholder="you@example.com"
+										autocomplete="email"
+										required
+									/>
+								</div>
+								<div class="field field--full">
+									<label for="demo-message">Message</label>
+									<textarea
+										name="demo-message"
+										id="demo-message"
+										rows="6"
+										placeholder="What would you like to talk about?"
+										required
+									></textarea>
+								</div>
+								<div class="field field--full">
+									<label class="check" for="demo-copy">
+										<input type="checkbox" id="demo-copy" name="demo-copy" checked />
+										<span class="check__box" aria-hidden="true"></span>
+										Send me a confirmation email
+									</label>
+								</div>
+							</div>
+
+							<div class="form__actions">
+								<button class="btn" type="submit" id="submit-btn">
+									Send message <i class="fas fa-arrow-right" aria-hidden="true"></i>
+								</button>
+								<p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+							</div>
+						</form>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<!-- ================= Footer ================= -->
+		<footer class="footer">
+			<div class="wrap footer__inner">
+				<p>&copy; <span id="year">2026</span> John Konyan. Built and deployed from scratch.</p>
+				<nav class="footer__links" aria-label="Footer">
+					<a href="https://www.linkedin.com/in/jkonyan/" target="_blank" rel="noopener">LinkedIn</a>
+					<a href="https://github.com/Jkonyan25" target="_blank" rel="noopener">GitHub</a>
+					<a href="mailto:Jkonyanswengineer@gmail.com">Email</a>
+					<a href="#home">Back to top</a>
+				</nav>
+			</div>
+		</footer>
+
+		<button class="totop" id="totop" type="button" aria-label="Back to top">
+			<i class="fas fa-chevron-up" aria-hidden="true"></i>
+		</button>
+
+		<script src="assets/js/portfolio.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+		<script>
+			(function () {
+				if (window.emailjs) emailjs.init("lS6DN_KOkTh5iM9vf");
+			})();
+		</script>
+		<script src="assets/js/contact.js"></script>
 	</body>
 </html>
